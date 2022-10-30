@@ -12,8 +12,8 @@ namespace OrganizationProfile
 
     class StudentInformationClass
     {
-        public static int SetStudentNo, SetContactNo, SetAge = 0;
-        public static string SetProgram, SetGender, SetBirthday, SetFullName = " ";
+        public static int SetStudentNo, SetAge = 0;
+        public static string SetProgram, SetContactNo, SetGender, SetBirthday, SetFullName = " ";
 
 
 

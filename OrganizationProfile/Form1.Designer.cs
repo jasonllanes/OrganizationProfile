@@ -214,9 +214,9 @@ namespace OrganizationProfile
             // 
             // txtContactNo
             // 
-            this.txtContactNo.Location = new System.Drawing.Point(444, 170);
+            this.txtContactNo.Location = new System.Drawing.Point(443, 171);
             this.txtContactNo.Name = "txtContactNo";
-            this.txtContactNo.Size = new System.Drawing.Size(100, 20);
+            this.txtContactNo.Size = new System.Drawing.Size(135, 20);
             this.txtContactNo.TabIndex = 20;
             // 
             // btnRegister

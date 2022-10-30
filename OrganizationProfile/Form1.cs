@@ -13,9 +13,9 @@ namespace OrganizationProfile
 {
     public partial class frmRegistration : Form
     {
-        private string _FullName;
+        private string _FullName, _ContactNo;
         private int _Age;
-        private long _ContactNo, _StudentNo;
+        private long _StudentNo;
 
         public frmRegistration()
         {
@@ -48,7 +48,9 @@ namespace OrganizationProfile
             try
             {
                 _StudentNo = long.Parse(studNum);
-            }catch(FormatException fe)
+
+            }
+            catch(FormatException fe)
             {
                 MessageBox.Show("Invalid Student Number Format");
             }
@@ -57,17 +59,17 @@ namespace OrganizationProfile
             return _StudentNo;
         }
 
-        public long ContactNo(string Contact)
+        public string ContactNo(string Contact)
         {
             if (Regex.IsMatch(Contact, @"^[0-9]{10,11}$"))
             {
-                _ContactNo = long.Parse(Contact);
+                _ContactNo = Contact;
             }
             else
             {
                 MessageBox.Show("Invalid Contact Number Format!");
             }
-
+           
             return _ContactNo;
         }
 
@@ -86,7 +88,7 @@ namespace OrganizationProfile
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-
+            
             try
             {
                 StudentInformationClass.SetFullName = FullName(txtLastName.Text,
@@ -94,7 +96,7 @@ namespace OrganizationProfile
                 StudentInformationClass.SetStudentNo = (int)StudentNumber(txtStudentNo.Text);
                 StudentInformationClass.SetProgram = cbPrograms.Text;
                 StudentInformationClass.SetGender = cbGender.Text;
-                StudentInformationClass.SetContactNo = (int)ContactNo(txtContactNo.Text);
+                StudentInformationClass.SetContactNo = "+63" + ContactNo(txtContactNo.Text.Replace("0", ""));
                 StudentInformationClass.SetAge = Age(txtAge.Text);
                 StudentInformationClass.SetBirthday = datePickerBirthday.Value.ToString("yyyy-MM-dd");
                 
